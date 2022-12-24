@@ -1,9 +1,10 @@
 import cv2
 import numpy as np
-import pywt
+import threshold_decomposition as td
 
-img = cv2.imread("sat_map3.jpg")
+img = cv2.imread("./sample_images/sat_map3.jpg")
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
 
 # thick edge detection mask
 kernelx = np.array([[1, 1, 1], [0, 0, 0], [-1, -1, -1]])
