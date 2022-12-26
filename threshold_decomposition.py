@@ -71,12 +71,12 @@ def summation(matrix):
     return result.astype(int)
 
 
-if __name__ == "__main__":
-    xdat = np.array([[0, 0, 2, -2, 1, 1, 0, -1, -1], [0, 2, 1, -2, 1, 1, 0, -1, -1]])
+# if __name__ == "__main__":
+#     xdat = np.array([[0, 0, 2, -2, 1, 1, 0, -1, -1], [0, 2, 1, -2, 1, 1, 0, -1, -1]])
 
-    res1 = custom_decomp_matrix(xdat, 2)
-    res2 = summation(res1)
+#     res1 = custom_decomp_matrix(xdat, 2) #threshold m = the highest absolute value of x[i]
+#     res2 = summation(res1)
 
-    print(xdat)
-    print(res1)
-    print(res2)
+#     print(xdat)
+#     print(res1)
+#     print(res2)
