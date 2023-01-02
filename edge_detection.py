@@ -62,15 +62,18 @@ def find_thick_edges(array_of_binary_images):
         img_prewitt_main_diagonal_reversed = sc.signal.convolve2d(
             array_of_binary_images[i], kernel_main_diagonal_reversed, mode="same"
         )
-        result[i] = (
-            img_prewittx
-            + img_prewitty
-            + img_prewitt_anti_diagonal
-            + img_prewitt_main_diagonal
-            + img_prewittx_reversed
-            + img_prewitty_reversed
-            + img_prewitt_anti_diagonal_reversed
-            + img_prewitt_main_diagonal_reversed
+        result[i] = max(
+            [
+                img_prewittx,
+                img_prewitty,
+                img_prewitt_anti_diagonal,
+                img_prewitt_main_diagonal,
+                img_prewittx_reversed,
+                img_prewitty_reversed,
+                img_prewitt_anti_diagonal_reversed,
+                img_prewitt_main_diagonal_reversed,
+            ],
+            key=lambda x: x.tolist(),
         )
 
     return result
@@ -112,15 +115,18 @@ def find_thin_edges(array_of_binary_images):
         img_main_diagonal_negated = sc.signal.convolve2d(
             array_of_binary_images[i], main_diagonal_negated, mode="same"
         )
-        result[i] = (
-            img_horizontal
-            + img_vertical
-            + img_anti_diagonal
-            + img_main_diagonal
-            + img_horizontal_negated
-            + img_vertical_negated
-            + img_anti_diagonal_negated
-            + img_main_diagonal_negated
+        result[i] = max(
+            [
+                img_horizontal,
+                img_vertical,
+                img_anti_diagonal,
+                img_main_diagonal,
+                img_horizontal_negated,
+                img_vertical_negated,
+                img_anti_diagonal_negated,
+                img_main_diagonal_negated,
+            ],
+            key=lambda x: x.tolist(),
         )
 
     return result
